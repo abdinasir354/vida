@@ -22,10 +22,15 @@ connectDB().then(async () => {
     const User = require('./models/User');
     const adminExists = await User.findOne({ role: 'admin' });
     if (!adminExists) {
+        if (!process.env.ADMIN_EMAIL || !process.env.ADMIN_PASSWORD) {
+            console.error('ERROR: ADMIN_EMAIL and ADMIN_PASSWORD environment variables are required!');
+            console.error('Please create a .env file based on .env.example');
+            process.exit(1);
+        }
         const admin = new User({
             name: 'Vida Admin',
-            email: process.env.ADMIN_EMAIL || 'admin@vida.com',
-            password: process.env.ADMIN_PASSWORD || 'admin123',
+            email: process.env.ADMIN_EMAIL,
+            password: process.env.ADMIN_PASSWORD,
             role: 'admin'
         });
         await admin.save();
