@@ -1,0 +1,15 @@
+{
+  "name": "vida-root",
+  "version": "1.0.0",
+  "scripts": {
+    "install-all": "npm install && cd client && npm install && cd ../server && npm install",
+    "build": "cd client && npm install && npm run build",
+    "client": "cd client && npm run dev",
+    "server": "cd server && npm run dev",
+    "start": "cd server && npm start",
+    "dev": "npx concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@theme {
+  --color-romantic-pink: #fbcfe8;
+  --color-romantic-rose: #f472b6;
+  --color-romantic-red: #e11d48;
+  --color-romantic-purple: #a855f7;
+  --color-deep-love: #4c1d95;
+  --color-whatsapp-teal: #128c7e;
+  --color-whatsapp-green: #25d366;
+  --color-whatsapp-light: #dcf8c6;
+  --color-whatsapp-bg: #e5ddd5;
+}
+
+@layer base {
+  body {
+    @apply bg-[radial-gradient(circle_at_top_left,_var(--color-romantic-pink)_0%,_#fff_100%)] text-slate-800 font-sans min-h-screen selection:bg-romantic-rose selection:text-white;
+  }
+}
+
+.glass {
+  @apply bg-white/40 backdrop-blur-2xl border border-white/40 shadow-[0_8px_32px_0_rgba(244,114,182,0.15)];
+}
+
+.glass-dark {
+  @apply bg-slate-900/40 backdrop-blur-2xl border border-white/10 shadow-2xl;
+}
+
+.heart-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.8; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-pink-200 rounded-full hover:bg-romantic-rose transition-colors;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-romantic-rose via-romantic-red to-romantic-purple bg-clip-text text-transparent;
+}
+.chat-bubble-left {
+  @apply bg-white text-slate-800 rounded-2xl rounded-tl-none px-4 py-2 shadow-sm max-w-[80%] relative;
+}
+
+.chat-bubble-right {
+  @apply bg-romantic-rose text-white rounded-2xl rounded-tr-none px-4 py-2 shadow-sm max-w-[80%] relative;
+}
+
+.chat-bubble-left::before {
+  content: '';
+  @apply absolute -left-2 top-0 border-8 border-transparent border-t-white;
+}
+
+.chat-bubble-right::before {
+  content: '';
+  @apply absolute -right-2 top-0 border-8 border-transparent border-t-romantic-rose;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.custom-audio {
+  @apply h-8 w-full brightness-95 hover:brightness-100 transition-all;
+}
+
+.custom-audio::-webkit-media-controls-panel {
+  @apply bg-slate-100;
+}
+
+.custom-audio::-webkit-media-controls-play-button {
+  @apply bg-whatsapp-teal rounded-full scale-75;
+}
