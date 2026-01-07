@@ -24,12 +24,12 @@ connectDB().then(async () => {
     if (!adminExists) {
         const admin = new User({
             name: 'Vida Admin',
-            email: 'admin@vida.com',
-            password: 'admin123',
+            email: process.env.ADMIN_EMAIL || 'admin@vida.com',
+            password: process.env.ADMIN_PASSWORD || 'admin123',
             role: 'admin'
         });
         await admin.save();
-        console.log('Default Admin Account Created: admin@vida.com / admin123');
+        console.log(`Default Admin Account Created: ${admin.email}`);
     }
 });
 
