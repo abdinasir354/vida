@@ -13,12 +13,17 @@ This project uses environment variables to protect sensitive credentials. **Neve
    ```
 
 2. **Edit `.env` and add your actual values:**
-   - `MONGO_URI`: Your MongoDB connection string
-   - `JWT_SECRET`: A secure random string (already generated in the example)
-   - `ADMIN_EMAIL`: Admin account email
-   - `ADMIN_PASSWORD`: Admin account password (change from default!)
+   - `MONGO_URI`: Your MongoDB connection string from MongoDB Atlas
+   - `JWT_SECRET`: Generate a secure random string (see below for how)
+   - `ADMIN_EMAIL`: Your preferred admin email
+   - `ADMIN_PASSWORD`: Choose a strong, secure password
    - `PORT`: Server port (default: 5000)
    - `NODE_ENV`: development or production
+
+   **To generate a secure JWT_SECRET, run:**
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"
+   ```
 
 3. **For Vercel Deployment:**
    - Go to your Vercel project settings
@@ -30,10 +35,10 @@ This project uses environment variables to protect sensitive credentials. **Neve
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `MONGO_URI` | MongoDB connection string | `mongodb+srv://user:pass@cluster.mongodb.net/vida` |
-| `JWT_SECRET` | Secret key for JWT tokens | (use the generated one in .env.example) |
-| `ADMIN_EMAIL` | Admin account email | `admin@vida.com` |
-| `ADMIN_PASSWORD` | Admin account password | `your_secure_password` |
+| `MONGO_URI` | MongoDB connection string | `mongodb+srv://user:pass@cluster.mongodb.net/database` |
+| `JWT_SECRET` | Secret key for JWT tokens | Generate a random 64+ character string |
+| `ADMIN_EMAIL` | Admin account email | `your_email@example.com` |
+| `ADMIN_PASSWORD` | Admin account password | `YourSecurePassword123!` |
 | `PORT` | Server port | `5000` |
 | `NODE_ENV` | Environment mode | `production` or `development` |
 
