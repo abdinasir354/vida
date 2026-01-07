@@ -35,7 +35,7 @@ This project uses environment variables to protect sensitive credentials. **Neve
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `MONGO_URI` | MongoDB connection string | `mongodb+srv://user:pass@cluster.mongodb.net/database` |
+| `MONGO_URI` | MongoDB connection string | `mongodb+srv://USERNAME:PASSWORD@CLUSTER.mongodb.net/DATABASE_NAME` |
 | `JWT_SECRET` | Secret key for JWT tokens | Generate a random 64+ character string |
 | `ADMIN_EMAIL` | Admin account email | `your_email@example.com` |
 | `ADMIN_PASSWORD` | Admin account password | `YourSecurePassword123!` |
