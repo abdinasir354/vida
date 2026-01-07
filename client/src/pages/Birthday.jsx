@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Gift, Cake, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
+
 const Birthday = () => {
     useEffect(() => {
         const duration = 15 * 1000;
